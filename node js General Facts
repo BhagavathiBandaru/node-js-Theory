@@ -1,0 +1,164 @@
+ Node JS
+
+Node JS is a JavaScript environment that executes JavaScript code outside a web browser.
+
+Why Node JS?
+
+    Cross-Platform (Windows, Linux, Mac OS X, etc.)
+    Huge number of third-party packages
+    Open Source
+    Massive Community
+
+3. Running JavaScript Using Node JS
+
+We can run JavaScript using Node JS in 2 ways.
+
+    Node REPL (Similar to browser console)
+    Node CLI
+
+3.1 Node REPL (Read-Eval-Print-Loop)
+
+Type node
+ in the terminal and press Enter
+.root@123# node
+Welcome to Node.js v12.18.3.
+Type ".help" for more information.
+> const a = 1
+undefined
+> const b = 2
+undefined
+> a+b
+3
+>
+3.2 Node CLI
+
+We can write JavaScript to a file and can run using Node CLI.
+
+index.js
+
+const greetings = (name) => {
+  console.log(`Hello ${name}`);
+};
+
+greetings("Raju");
+greetings("Abhi");
+
+root@123# node index.js
+Hello Raju
+Hello Abhi
+
+Save the file whenever the code changes.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+In Node JS, each JavaScript file is treated as a separate module. These are known as the Common JS/Node JS Modules.
+
+To access one module from another module, we have Module Exports.
+
+    Common JS Module Exports
+        Default Exports
+        Named Exports
+    Modern JS Module Exports
+        Default Exports
+        Named Exports
+
+4.1 Common JS Module Exports
+4.1.1 Default Exports
+Exporting Module
+
+The module.exports
+ is a special object included in every JavaScript file in the Node JS application by default.
+ //calculator.js
+
+const add = (a, b) => {
+  return a + b;
+};
+module.exports = add;
+
+Importing Module
+
+To import a module which is the local file, use the require() function with the relative path of the module (file name).
+const add = require("./calculator");
+
+console.log(add(6, 3));
+
+4.1.2 Named Exports
+
+We can have multiple named exports per module.
+Exporting Module
+//calculator.js
+
+const add = (a, b) => {
+  return a + b;
+};
+const sub = (a, b) => {
+  return a - b;
+};
+
+exports.add = add;
+exports.sub = sub;
+
+
+//index.js
+
+const { add, sub } = require("./calculator");
+
+console.log(add(6, 3));
+
+console.log(sub(6, 3));
+4.2 Modern JS Module Exports
+
+Modern JS Modules are known as ES6 Modules.
+
+The export and import keywords are introduced for exporting and importing one or more members in a module.
+4.2.1 Default Exports
+Exporting Module
+//calculator.mjs
+
+const add = (a, b) => {
+  return a + b;
+};
+export default add;
+//index.mjs
+
+import add from "./calculator.mjs";
+console.log(add(6, 3));
+
+4.2.2 Named Exports
+Exporting Module
+//calculator.mjs
+
+export const add = (a, b) => {
+  return a + b;
+};
+export const sub = (a, b) => {
+  return a - b;
+};
+
+//index.mjs
+
+import { add, sub } from "./calculator.mjs";
+
+console.log(add(6, 3));
+console.log(sub(6, 3));
+
+    We need to specify .mjs
+    extension while importing ES6 Modules.
+    We may or may not need to specify .js
+    while importing Common JS Modules.
+
+
+
