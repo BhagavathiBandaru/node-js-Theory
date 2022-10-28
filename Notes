@@ -1,0 +1,18 @@
+Default Export:-The module.exports is a special object included in every JavaScript file
+in the Node JS application by default.We can export only single module. 
+Example:-
+const add = (a, b) => {
+  return a + b;
+};
+module.exports = add;
+Named Export:-We can have multiple named exports per module.
+Example:-
+const add = (a, b) => {
+  return a + b;
+};
+const sub = (a, b) => {
+  return a - b;
+};
+
+exports.add = add;
+exports.sub = sub;
