@@ -1,5 +1,4 @@
-# node-js-exportmodule-differenciation
-
+Theory
 summery:
 coomon module extention:index.js 
 common module:EXPORTS ARE OF TWO TYPES:---1.Default 2.Named
