@@ -1,0 +1,100 @@
+
+1. HTTP Server
+
+    Works with the HTTP requests and responses
+    Handles the different paths
+    Handles the query parameters
+    Sends the content as HTML, CSS, etc. as an HTTP response
+    Works with the databases
+
+1.1 Server-side Web Frameworks
+
+The Server-side Web Frameworks take care of all the above requirements.
+
+Some of the Web Frameworks are:
+
+    Express (Node JS)
+    Django (Python)
+    Ruby on Rails (Ruby)
+    Spring Boot (Java)
+
+2. Express JS
+
+It is a free and open-source Server-side Web Application Framework for Node JS.
+
+It provides a robust set of features to build web and mobile applications quickly and easily.
+
+Installation Command:npm install express --save
+
+3. Network call using Express JS
+Creating Express server instance
+const express = require("express");
+const app = express();
+Assigning a port number
+ app.listen(3000);
+ 
+ 
+The app starts a server and listens on port 3000 for connections.
+ 
+ 3.1 Handling HTTP Request
+
+Syntax:app.METHOD(PATH, HANDLER)
+
+    1.METHOD is an HTTP request method, in lowercase like get, post, put, and delete
+    2.PATH is a path on the server.
+    3.HANDLER is the function executed when the PATH is matched with the requested path.
+ 
+3.1.1 GET Request
+ 
+ const express = require("express");
+const app = express();
+
+app.get("/", (request, response) => {
+  response.send("Hello World!");
+});
+app.listen(3000);
+ 
+ 
+Note:-Whenever the code changes, we need to restart the server to reflect the changes we made. 
+ 
+ 
+ 
+4. Network Call to get a Today’s Date
+ 
+ const express = require("express");
+const app = express();
+
+app.get("/date", (request, response) => {
+  let date = new Date();
+  response.send(`Today's date is ${date}`);
+});
+
+app.listen(3000);
+ 
+ 
+ 6. Network Call to get HTML content as an HTTP Response
+  6.1 Sending file as an HTTP Response
+
+Syntax:response.sendFile(PATH, {root: __dirname });
+
+PATH is a path to the file which we want to send.
+__dirname is a variable in Common JS Modules that returns the path of the folder
+where the current JavaScript file is present.
+
+
+const express = require("express");
+const app = express();
+
+app.get("/page", (request, response) => {
+  response.sendFile("./page.html", { root: __dirname });
+});
+
+app.listen(3000);
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
